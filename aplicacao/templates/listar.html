@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Listar Produtos{% endblock %}
+{% block content %}
+    <h2>Produtos Cadastrados</h2>
+    <table border="1">
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.codproduto }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>
+                <a href="{{ url_for('alterar', cod=produto.codproduto) }}">Alterar</a> |
+                <a href="{{ url_for('excluir', cod=produto.codproduto) }}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="{{ url_for('inserir') }}">Inserir Novo Produto</a></p>
+{% endblock %}

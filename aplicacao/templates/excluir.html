@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Excluir Produto{% endblock %}
+{% block content %}
+    <h2>Excluir Produto</h2>
+    <p>Tem certeza de que deseja excluir o produto <strong>{{ produto['descricao'] }}</strong> ({{ produto['codproduto'] }})?</p>
+    <form method="post">
+        <button type="submit">Confirmar Exclusão</button>
+    </form>
+    <p><a href="{{ url_for('listar') }}">Cancelar</a></p>
+{% endblock %}
